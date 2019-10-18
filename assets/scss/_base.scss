@@ -93,11 +93,11 @@ main {
     margin-bottom: $space-lg;
 
     @include md {
-      width: 90%;
+      width: 100%;
     }
 
     @include xl {
-      width: 80%;
+      width: 100%;
     }
   }
 }

@@ -9,7 +9,8 @@
     "node": ">=10"
   },
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon ./bin/www",
+    "build:css": "postcss assets/styles/app.css -o public/app.css",
+    "dev": "npm run build:css && cross-env NODE_ENV=development nodemon ./bin/www",
     "start": "cross-env NODE_ENV=production node ./bin/www",
     "lint": "node node_modules/eslint/bin/eslint.js config utils routes bin/www app.js",
     "prettier": "prettier --write '**/*.{ts,js,css,html}'",
@@ -26,10 +27,12 @@
     }
   },
   "dependencies": {
+    "autoprefixer": "^9.6.5",
     "compression": "^1.7.4",
     "cookie-parser": "~1.4.4",
     "cookie-session": "^1.3.3",
     "copy-template-dir": "^1.4.0",
+    "cross-env": "^6.0.3",
     "csurf": "^1.10.0",
     "dotenv": "^8.1.0",
     "dynamoose": "^1.11.1",
@@ -42,8 +45,9 @@
     "node-sass-middleware": "^0.11.0",
     "normalize.css": "^8.0.1",
     "nunjucks": "^3.2.0",
+    "postcss-cli": "^6.1.3",
     "request": "^2.88.0",
-    "cross-env": "^6.0.3"
+    "tailwindcss": "^1.1.2"
   },
   "devDependencies": {
     "@aws-cdk/aws-docdb": "1.13.0",
