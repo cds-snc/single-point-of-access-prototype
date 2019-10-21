@@ -1,9 +1,7 @@
-console.log('start')
 const searchEl = document.getElementById('search')
 const results = document.getElementById('results')
 
 const origin = 'http://localhost:3000'
-var counter = 1
 
 const getRandomInt = max => {
   return Math.floor(Math.random() * Math.floor(max))
