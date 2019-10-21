@@ -50,6 +50,15 @@ form fieldset legend, form>label{
     font-weight: normal;
 }
 
+.categories{
+    font-size:  0.75em;
+    font-weight: 600;
+}
+
+.categories a{
+    font-weight: normal;
+}
+
 
 
 .apply-filters .fieldset__legend{
