@@ -13,3 +13,49 @@
 .details{
     @apply bg-blue-lighter px-3 py-2;
 }
+
+.container-search{
+    position: relative;
+}
+
+.search-btn{
+    margin:0;
+    height: 40px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    border: 1px solid #000;
+    border-left: none;
+    border-radius: 0;
+    overflow: hidden;
+    text-indent: -5000px;
+    color: #fff;
+    @apply bg-blue;
+    background-image: url("img/search-button.png");
+    background-repeat: no-repeat;
+    background-position: 5px 50%;
+}
+
+.search-form .search-box label{
+    font-size: 0.75em;
+}
+
+.filters label{
+    font-size: 0.75em;
+}
+
+form fieldset legend, form>label{
+    font-size:  0.75em;
+    font-weight: normal;
+}
+
+
+
+.apply-filters .fieldset__legend{
+    margin-bottom:.5em;
+    
+}
+
+
+
