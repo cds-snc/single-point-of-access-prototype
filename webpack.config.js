@@ -5,7 +5,7 @@ module.exports = (env, argv) => {
   const config = getConfig({
     mode: argv.mode,
     entry: {
-      personal: './routes/personal/js/personal.js',
+      start: './routes/start/js/start.js',
     },
     output: {
       filename: '[name].[chunkhash].js',

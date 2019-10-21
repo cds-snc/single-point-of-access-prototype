@@ -4,13 +4,19 @@
 {% block content %}
     <div class="flex flex-wrap flex-row">
         <div class="filters flex flex-1">
-        Filters
+            <div>
+                <form class="my-0">
+                    <button id="search" class="button-link">search</button>
+                </form>
+            </div>
         </div>
         <div class="flex flex-grow">
             <div class="flex flex-wrap flex-col">
-                {% for item in items %}
-                    {{listItem(item) }}
-                {% endfor %}
+                <div id="results">
+                    {% for item in items %}
+                        {{listItem(item) }}
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>

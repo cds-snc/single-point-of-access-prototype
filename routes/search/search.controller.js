@@ -1,10 +1,7 @@
-const { routeUtils, getClientJs } = require('../../utils/index')
+const { routeUtils } = require('./../../utils')
 
 module.exports = (app, route) => {
   const name = route.name
-
-  // redirect from "/" → "/start"
-  app.get('/', (req, res) => res.redirect(route.path[req.locale]))
 
   const items = [
     {
@@ -54,19 +51,10 @@ module.exports = (app, route) => {
     },
   ]
 
-  route.draw(app).get(async (req, res) => {
-    const js = getClientJs(req, route.name)
-
+  route.draw(app).get((req, res) => {
     const shuffle = array => {
       return array.sort(() => Math.random() - 0.5)
     }
-
-    res.render(
-      name,
-      routeUtils.getViewData(res, {
-        items: shuffle(items),
-        jsFiles: js ? [js] : false,
-      }),
-    )
+    res.render(name, routeUtils.getViewData(req, { items: shuffle(items) }))
   })
 }
