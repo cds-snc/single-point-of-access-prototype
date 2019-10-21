@@ -1,5 +1,6 @@
 const searchEl = document.getElementById('search')
 const results = document.getElementById('results')
+const fetch = window.fetch
 
 const origin = 'http://localhost:3000'
 
