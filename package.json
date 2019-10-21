@@ -9,7 +9,7 @@
     "node": ">=10"
   },
   "scripts": {
-    "sync": "browser-sync start --proxy 'localhost:3000' --files ['routes/**/*.njk', 'public/app.css']",
+    "sync": "browser-sync start --reload-delay 2000 --proxy 'localhost:3000' --files ['routes/**/*.njk', 'public/app.css']",
     "build:css": "postcss assets/styles/app.css -o public/app.css",
     "watch:css": "postcss assets/styles/app.css -o public/app.css --watch ",
     "build": "webpack --mode=production",
