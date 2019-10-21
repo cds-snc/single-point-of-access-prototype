@@ -1,7 +1,15 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .container {
     max-width: 100% !important;
+}
+
+.list-item{
+    @apply max-w-lg;
+    font-size: 1.0rem;
+}
+
+.details{
+    @apply bg-blue-lighter px-3 py-2;
 }

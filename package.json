@@ -9,7 +9,9 @@
     "node": ">=10"
   },
   "scripts": {
+    "sync": "browser-sync start --proxy 'localhost:3000' --files ['routes/**/*.njk', 'public/app.css']",
     "build:css": "postcss assets/styles/app.css -o public/app.css",
+    "watch:css": "postcss assets/styles/app.css -o public/app.css --watch ",
     "build": "webpack --mode=production",
     "dev": "cross-env nodemon --ignore public/js/dist --exec npm run dev:dist",
     "dev:dist": "webpack --mode=development && cross-env NODE_ENV=development  node ./bin/www",
@@ -29,6 +31,7 @@
     }
   },
   "dependencies": {
+    "@cds-snc/webpack-starter": "cds-snc/webpack-starter#aa0e70bae",
     "autoprefixer": "^9.6.5",
     "compression": "^1.7.4",
     "cookie-parser": "~1.4.4",
@@ -49,8 +52,7 @@
     "nunjucks": "^3.2.0",
     "postcss-cli": "^6.1.3",
     "request": "^2.88.0",
-    "tailwindcss": "^1.1.2",
-    "@cds-snc/webpack-starter": "cds-snc/webpack-starter#aa0e70bae"
+    "tailwindcss": "^1.1.2"
   },
   "devDependencies": {
     "@aws-cdk/aws-docdb": "1.13.0",
