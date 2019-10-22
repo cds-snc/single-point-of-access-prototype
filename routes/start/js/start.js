@@ -30,7 +30,7 @@ const fetchItems = async () => {
 
 /* Get all filters that are checked */
 const getChecked = () => {
-  let checked = []
+  const checked = []
 
   const statusCheckboxesChecked = document.querySelectorAll(
     'input[name=apply_filters]:checked',
