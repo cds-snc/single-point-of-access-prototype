@@ -55,6 +55,16 @@ module.exports = (app, route) => {
     const shuffle = array => {
       return array.sort(() => Math.random() - 0.5)
     }
-    res.render(name, routeUtils.getViewData(req, { items: shuffle(items) }))
+
+    let category = ' All categories'
+
+    if (req.query.category) {
+      category = req.query.category
+    }
+
+    res.render(
+      name,
+      routeUtils.getViewData(req, { items: shuffle(items), category }),
+    )
   })
 }
