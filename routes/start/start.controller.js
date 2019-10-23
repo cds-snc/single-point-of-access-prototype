@@ -1,4 +1,6 @@
 const { routeUtils, getClientJs } = require('../../utils/index')
+const fs = require('fs')
+
 
 module.exports = (app, route) => {
   const name = route.name
@@ -6,6 +8,9 @@ module.exports = (app, route) => {
   // redirect from "/" → "/start"
   app.get('/', (req, res) => res.redirect(route.path[req.locale]))
 
+  const sampleData = fs.readFileSync('data/sample_data.json')
+  const sampleData2 = JSON.parse(sampleData)
+  console.log(sampleData2.slice(0, 10))
   const items = [
     {
       heading: 'Business Analyst',
@@ -64,7 +69,8 @@ module.exports = (app, route) => {
     res.render(
       name,
       routeUtils.getViewData(res, {
-        items: shuffle(items),
+        // items: shuffle(items),
+        items: shuffle(sampleData2.slice(0, 10)),
         jsFiles: js ? [js] : false,
       }),
     )
