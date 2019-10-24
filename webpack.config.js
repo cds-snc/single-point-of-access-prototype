@@ -6,6 +6,7 @@ module.exports = (env, argv) => {
     mode: argv.mode,
     entry: {
       start: './routes/start/js/start.js',
+      search: './routes/search/js/search.js',
     },
     output: {
       filename: '[name].[chunkhash].js',

@@ -1,4 +1,4 @@
-const { routeUtils } = require('./../../utils')
+const { routeUtils, getClientJs } = require('../../utils/index')
 const fs = require('fs')
 
 const intersection = (setA, setB) => {
@@ -18,6 +18,8 @@ module.exports = (app, route) => {
   const sampleData2 = JSON.parse(sampleData)
 
   route.draw(app).get((req, res) => {
+    const js = getClientJs(req, route.name)
+
     const filter = (array, selectedProvinces) => {
       return array.filter(x => {
         const listedProvinces = new Set(x.province_territory_of_work)
@@ -39,9 +41,14 @@ module.exports = (app, route) => {
       provTerr = req.query.filters
     }
     const selectedProvinces = new Set(provTerr.split(","))
+    const results = filter(sampleData2, selectedProvinces)
     res.render(
       name,
-      routeUtils.getViewData(req, { items: filter(sampleData2, selectedProvinces), category }),
+      routeUtils.getViewData(req, { 
+        items: results,
+        jsFiles: js ? [js] : false,
+        category: category,
+      }),
     )
   })
 }
