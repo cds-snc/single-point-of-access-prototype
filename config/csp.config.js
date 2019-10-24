@@ -8,9 +8,10 @@ if (process.env.NODE_ENV === 'development') {
 
 module.exports = {
   defaultSrc: ["'self'"],
-  scriptSrc,
+  scriptSrc: scriptSrc,
   baseUri: ["'none'"],
   fontSrc: ["'self'", 'https://fonts.gstatic.com'],
   imgSrc: ["'self'", 'data:'],
   styleSrc: ["'self'", 'https://fonts.googleapis.com'],
+  upgradeInsecureRequests: true,
 }
