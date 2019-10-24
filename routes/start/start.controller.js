@@ -21,7 +21,6 @@ module.exports = (app, route) => {
     res.render(
       name,
       routeUtils.getViewData(res, {
-        // items: shuffle(items),
         items: shuffle(sampleData2.slice(0, 10)),
         jsFiles: js ? [js] : false,
       }),
