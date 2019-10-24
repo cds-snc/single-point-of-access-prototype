@@ -1,6 +1,16 @@
 const { routeUtils } = require('./../../utils')
 const fs = require('fs')
 
+const intersection = (setA, setB) => {
+  var _intersection = new Set();
+  for (var elem of setB) {
+      if (setA.has(elem)) {
+          _intersection.add(elem);
+      }
+  }
+  return _intersection;
+}
+
 module.exports = (app, route) => {
   const name = route.name
 
@@ -8,8 +18,14 @@ module.exports = (app, route) => {
   const sampleData2 = JSON.parse(sampleData)
 
   route.draw(app).get((req, res) => {
-    const shuffle = array => {
-      return array.sort(() => Math.random() - 0.5)
+    const filter = (array, selectedProvinces) => {
+      return array.filter(x => {
+        const listedProvinces = new Set(x.province_territory_of_work)
+        if (intersection(listedProvinces, selectedProvinces).size > 0) {
+          return true
+        }
+          return false
+      })
     }
 
     let category = ' All categories'
@@ -18,9 +34,14 @@ module.exports = (app, route) => {
       category = req.query.category
     }
 
+    let provTerr = ""
+    if (req.query.filters) {
+      provTerr = req.query.filters
+    }
+    const selectedProvinces = new Set(provTerr.split(","))
     res.render(
       name,
-      routeUtils.getViewData(req, { items: shuffle(sampleData2), category }),
+      routeUtils.getViewData(req, { items: filter(sampleData2, selectedProvinces), category }),
     )
   })
 }

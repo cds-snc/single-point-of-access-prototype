@@ -44,7 +44,7 @@
             <div class="apply-filters my-2 bg-gray-100 px-2 py-2 border border-solid border-gray-300">
                 <form class="my-0">
                     <div>
-                        {{ checkBoxes('apply_locations', {'1':'Ontario','2':'PEI'}, data.notify_type, 'form.apply_locations', errors) }}
+                        {{ checkBoxes('apply_locations', provTerrOptions, data.notify_type, 'form.apply_locations', errors) }}
                     </div>
                 </form>
             </div>
