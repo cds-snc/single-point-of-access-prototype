@@ -55,7 +55,6 @@ module.exports = (app, route) => {
   ]
 
   route.draw(app).get(async (req, res) => {
-    req.secure = true
     const js = getClientJs(req, route.name)
 
     const shuffle = array => {
