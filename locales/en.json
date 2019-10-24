@@ -50,9 +50,17 @@
   "Cannot read property 'match' of undefined": "Cannot read property 'match' of undefined",
   "Government of Canada": "Government of Canada",
   "form.apply_filters": "Status",
+  "form.gsin_category_filter": "GSIN Categories",
+  "form.location_filter": "Location",
   "Open": "Open",
   "Closed": "Closed",
   "form.apply_locations": "Locations",
   "Ontario": "Ontario",
-  "PEI": "PEI"
+  "PEI": "PEI",
+  "Opens": "Opens",
+  "form.Location_filter": "form.Location_filter",
+  "All Categories": "All Categories",
+  "Goods": "Goods",
+  "Services": "Services",
+  "Construction": "Construction"
 }

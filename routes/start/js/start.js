@@ -1,8 +1,8 @@
 const searchQuery = document.querySelector('input[name=q]')
 const searchButton = document.getElementById('search')
-const statusCheckboxes = document.querySelectorAll('input[name=apply_filters]')
+const statusCheckboxes = document.querySelectorAll('input[name=gsin_category_filter]')
 const locationCheckboxes = document.querySelectorAll(
-  'input[name=apply_locations]',
+  'input[name=location_filter]',
 )
 const categoryLinks = document.querySelectorAll('.categories a')
 
@@ -33,10 +33,10 @@ const getChecked = () => {
   const checked = []
 
   const statusCheckboxesChecked = document.querySelectorAll(
-    'input[name=apply_filters]:checked',
+    'input[name=gsin_category_filter]:checked',
   )
   const locationCheckboxesChecked = document.querySelectorAll(
-    'input[name=apply_locations]:checked',
+    'input[name=location_filter]:checked',
   )
 
   statusCheckboxesChecked.forEach(item => {
@@ -53,12 +53,6 @@ const getChecked = () => {
 }
 
 /* Click events */
-searchButton.addEventListener('click', async e => {
-  e.preventDefault()
-  keyword = searchQuery.value
-  fetchItems()
-})
-
 statusCheckboxes.forEach(item => {
   item.addEventListener('click', e => {
     getChecked()

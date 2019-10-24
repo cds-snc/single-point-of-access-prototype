@@ -48,6 +48,8 @@
   "wordmark.alt": "Symbol of the Government of Canada",
   "Government of Canada": "Government of Canada",
   "form.apply_filters": "form.apply_filters",
+  "form.gsin_category_filter": "Catégories GSIN",
+  "form.location_filter": "Région",
   "Open": "Open",
   "Closed": "Closed",
   "form.apply_locations": "form.apply_locations",
