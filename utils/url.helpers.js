@@ -19,17 +19,6 @@ const getDomain = req => {
   return `${protocol}://${host}`
 }
 
-// const getJsDomain = req => {
-//   const protocol = 'https'
-
-//   if (!req || !req.headers || !req.headers.host) {
-//     throw new Error('req missing host')
-//   }
-
-//   const host = req.headers.host
-//   return `${protocol}://${host}`
-// }
-
 const getHostProtocol = req => {
   if (req && req.secure) {
     return 'https'

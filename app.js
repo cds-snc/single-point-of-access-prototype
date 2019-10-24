@@ -14,7 +14,6 @@ const { hasData } = require('./utils')
 const { addNunjucksFilters } = require('./filters')
 const csp = require('./config/csp.config')
 const csrf = require('csurf')
-var sslRedirect = require('heroku-ssl-redirect');
 
 // check to see if we have a custom configRoutes function
 let { configRoutes, routes, locales } = require('./config/routes.config')
@@ -26,7 +25,6 @@ if (!locales) locales = ['en', 'fr']
 const app = express()
 
 // general app configuration.
-app.use(sslRedirect());
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser(process.env.app_session_secret))
