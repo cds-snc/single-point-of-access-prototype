@@ -6,9 +6,6 @@ const locationCheckboxes = document.querySelectorAll(
 )
 const categoryLinks = document.querySelectorAll('.categories a')
 
-const publishDates = document.querySelectorAll('.publish-date')
-const closingDates = document.querySelectorAll('.closing-date')
-
 const fetch = window.fetch
 const origin = window.location.origin
 const results = document.getElementById('results')
@@ -29,6 +26,8 @@ const fetchItems = async () => {
     '',
     params,
   )
+
+  formatDates()
 }
 
 /* Get all filters that are checked */
@@ -83,12 +82,19 @@ categoryLinks.forEach(item => {
 })
 
 /* format dates */
-publishDates.forEach(item => {
-  const date = new Date(item.innerHTML)
-  item.innerHTML = date.toLocaleString("en-US", {"month": "long", "day": "numeric", "year": "numeric"})
-})
+const formatDates = () => {
+  const publishDates = document.querySelectorAll('.publish-date')
+  const closingDates = document.querySelectorAll('.closing-date')
 
-closingDates.forEach(item => {
-  const date = new Date(item.innerHTML)
-  item.innerHTML = date.toLocaleString("en-US", {"month": "long", "day": "numeric", "year": "numeric", "hour": "numeric"})
-})
+  publishDates.forEach(item => {
+    const date = new Date(item.innerHTML)
+    item.innerHTML = date.toLocaleString("en-US", {"month": "long", "day": "numeric", "year": "numeric"})
+  })
+
+  closingDates.forEach(item => {
+    const date = new Date(item.innerHTML)
+    item.innerHTML = date.toLocaleString("en-US", {"month": "long", "day": "numeric", "year": "numeric", "hour": "numeric"})
+  })
+}
+
+formatDates()
