@@ -4,17 +4,17 @@
         <h2 class="my-1 text-blue">{{attributes.title}}</h2>
         <div class="location my-0 text-sm font-bold text-gray-800">
             <div class="location-1">Buyer: {{attributes.buyer_name}}</div>
-            <div class="location-2">Location: {{attributes.location_of_work}}</div>
+            <div class="location-2">Location: {{ attributes.location_of_work | truncate(50) }}</div>
         </div>
         <!-- start details -->
-        <div class="details my-1 text-gray-800 text-sm">
-            <div class="title">{{attributes.title}}</div>
-            <div class="published">{{attributes.published}}</div>
-            <div class="deadline">{{attributes.deadline}}</div>
-            <div class="closing">{{attributes.closing}}</div>
-        </div>
+        {# <div class="details my-1 text-gray-800 text-sm">
+            <div class="deadline">Published on: {{attributes.published_date}}</div>
+            <div class="closing">Closing on: {{attributes.closing_date}}</div>
+        </div> #}
         <!-- end details -->
-        <p class="description my-2 text-gray-800">{{attributes.description}}</p>
+        <p class="my-0 text-sm text-gray-800">Published on: {{attributes.published_date}}</p>
+        <p class="my-0 text-sm text-gray-800">Closing on: {{attributes.closing_date}}</p>
+        <p class="description my-2 text-gray-800">{{ attributes.tender_description | truncate(200) }}</p>
         <hr class="list-item-line my-6" />
     </div>
     <!-- end list item -->
