@@ -1,5 +1,3 @@
-const searchQuery = document.querySelector('input[name=q]')
-const searchButton = document.getElementById('search')
 const statusCheckboxes = document.querySelectorAll('input[name=gsin_category_filter]')
 const locationCheckboxes = document.querySelectorAll(
   'input[name=location_filter]',
