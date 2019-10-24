@@ -11,6 +11,14 @@ const intersection = (setA, setB) => {
   return _intersection;
 }
 
+const sortPostingDate = array => {
+  return array.sort((a, b) => {
+    const dateA = new Date(a.published_date)
+    const dateB = new Date(b.published_date)
+    return dateB - dateA
+})
+}
+
 module.exports = (app, route) => {
   const name = route.name
 
@@ -19,6 +27,11 @@ module.exports = (app, route) => {
 
   route.draw(app).get((req, res) => {
     const filter = (array, selectedProvinces) => {
+      console.log(selectedProvinces)
+      if(selectedProvinces.size < 1) {
+        console.log("no selections")
+        return array
+      }
       return array.filter(x => {
         const listedProvinces = new Set(x.province_territory_of_work)
         if (intersection(listedProvinces, selectedProvinces).size > 0) {
@@ -38,12 +51,12 @@ module.exports = (app, route) => {
     if (req.query.filters) {
       provTerr = req.query.filters
     }
-    const selectedProvinces = new Set(provTerr.split(","))
+    const selectedProvinces = new Set(provTerr.split(",").filter(x => x))
     const results = filter(sampleData2, selectedProvinces)
     res.render(
       name,
       routeUtils.getViewData(req, { 
-        items: results,
+        items: sortPostingDate(results),
         category: category,
       }),
     )

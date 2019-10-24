@@ -97,4 +97,5 @@ const formatDates = () => {
   })
 }
 
-formatDates()
+// formatDates()
+fetchItems()

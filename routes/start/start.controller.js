@@ -29,18 +29,10 @@ module.exports = (app, route) => {
   route.draw(app).get(async (req, res) => {
     const js = getClientJs(req, route.name)
 
-    const sortPostingDate = array => {
-      return array.sort((a, b) => {
-        const dateA = new Date(a.published_date)
-        const dateB = new Date(b.published_date)
-        return dateB - dateA
-    })
-  }
-
     res.render(
       name,
       routeUtils.getViewData(res, {
-        items: sortPostingDate(sampleDataParsed),
+        items: [sampleDataParsed.slice(0, 10)],// sortPostingDate(sampleDataParsed),
         jsFiles: js ? [js] : false,
         provTerrOptions: provTerrOptions,
       }),
