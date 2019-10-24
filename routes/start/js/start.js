@@ -9,7 +9,7 @@ const origin = window.location.origin
 const results = document.getElementById('results')
 
 let filters = ''
-let keyword = ''
+const keyword = ''
 let category = ''
 
 /* Ajax request */
