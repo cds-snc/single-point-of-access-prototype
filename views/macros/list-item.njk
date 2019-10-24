@@ -12,8 +12,8 @@
             <div class="closing">Closing on: {{attributes.closing_date}}</div>
         </div> #}
         <!-- end details -->
-        <p class="my-0 text-sm text-gray-800">Published on: {{attributes.published_date}}</p>
-        <p class="my-0 text-sm text-gray-800">Closing on: {{attributes.closing_date}}</p>
+        <p class="my-0 text-sm text-gray-800">Published on: <span class="publish-date">{{ attributes.published_date }}</span></p>
+        <p class="my-0 text-sm text-gray-800">Closing on: <span class="closing-date">{{attributes.closing_date}}</span></p>
         <p class="description my-2 text-gray-800">{{ attributes.tender_description | truncate(200) }}</p>
         <hr class="list-item-line my-6" />
     </div>
