@@ -7,7 +7,7 @@ const locationCheckboxes = document.querySelectorAll(
 const categoryLinks = document.querySelectorAll('.categories a')
 
 const fetch = window.fetch
-const origin = 'http://localhost:3000' // need to update this
+const origin = window.location.origin
 const results = document.getElementById('results')
 
 let filters = ''
