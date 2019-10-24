@@ -56,7 +56,7 @@ module.exports = (app, route) => {
 
   route.draw(app).get(async (req, res) => {
     const js = getClientJs(req, route.name)
-
+    console.log("req.secure = " + req.secure)
     const shuffle = array => {
       return array.sort(() => Math.random() - 0.5)
     }
