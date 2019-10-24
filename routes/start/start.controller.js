@@ -24,19 +24,23 @@ module.exports = (app, route) => {
   app.get('/', (req, res) => res.redirect(route.path[req.locale]))
 
   const sampleData = fs.readFileSync('data/sample_data.json')
-  const sampleData2 = JSON.parse(sampleData)
+  const sampleDataParsed = JSON.parse(sampleData)
 
   route.draw(app).get(async (req, res) => {
     const js = getClientJs(req, route.name)
 
-    const shuffle = array => {
-      return array.sort(() => Math.random() - 0.5)
-    }
+    const sortPostingDate = array => {
+      return array.sort((a, b) => {
+        const dateA = new Date(a.published_date)
+        const dateB = new Date(b.published_date)
+        return dateB - dateA
+    })
+  }
 
     res.render(
       name,
       routeUtils.getViewData(res, {
-        items: shuffle(sampleData2.slice(0, 10)),
+        items: sortPostingDate(sampleDataParsed),
         jsFiles: js ? [js] : false,
         provTerrOptions: provTerrOptions,
       }),
