@@ -32,7 +32,7 @@ module.exports = (app, route) => {
     res.render(
       name,
       routeUtils.getViewData(res, {
-        items: [sampleDataParsed.slice(0, 10)],// sortPostingDate(sampleDataParsed),
+        items: sampleDataParsed.slice(0, 10),// sortPostingDate(sampleDataParsed),
         jsFiles: js ? [js] : false,
         provTerrOptions: provTerrOptions,
       }),
