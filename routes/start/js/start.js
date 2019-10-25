@@ -10,10 +10,36 @@ const fetch = window.fetch
 const origin = window.location.origin
 const results = document.getElementById('results')
 
+const getQueryVariable = variable => {
+  var query = window.location.search.substring(1);
+  var vars = query.split('&');
+  for (var i = 0; i < vars.length; i++) {
+      var pair = vars[i].split('=');
+      if (decodeURIComponent(pair[0]) === variable) {
+          return decodeURIComponent(pair[1]);
+      }
+  }
+  console.log('Query variable %s not found', variable);
+}
+
 let filters = ''
 let keyword = ''
 let category = ''
 
+if(window.location.search) {
+  filters = getQueryVariable("filters") ? getQueryVariable("filters") : ''
+  // keyword = getQueryVariable("keyword") ? getQueryVariable("keyword") : ''
+  // category = getQueryVariable("category") ? getQueryVariable("category") : ''
+}
+
+const checkTheBoxes = () => {
+  locationCheckboxes.forEach(item => {
+    if (filters.indexOf(item.value) > -1) {
+      item.checked = true
+    }
+  })
+}
+checkTheBoxes()
 /* Ajax request */
 const fetchItems = async () => {
   const params = `?k=${keyword}&filters=${filters}&category=${category}`
