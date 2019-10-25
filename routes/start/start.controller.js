@@ -28,13 +28,14 @@ module.exports = (app, route) => {
 
   route.draw(app).get(async (req, res) => {
     const js = getClientJs(req, route.name)
-
+    console.log(req.originalUrl)
     res.render(
       name,
       routeUtils.getViewData(res, {
         items: [sampleDataParsed.slice(0, 10)],// sortPostingDate(sampleDataParsed),
         jsFiles: js ? [js] : false,
         provTerrOptions: provTerrOptions,
+        URL: req.originalUrl,
       }),
     )
   })

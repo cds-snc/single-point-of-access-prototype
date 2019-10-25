@@ -18,18 +18,21 @@ const sortPostingDate = array => {
     return dateB - dateA
 })
 }
+const getResultsByPage = (results, page, resultsPerPage=10) => {
+  const startIndex = (page - 1)*resultsPerPage
+  const endIndex = page*resultsPerPage
+  return results.slice(startIndex, endIndex)
+}
 
 module.exports = (app, route) => {
   const name = route.name
 
   const sampleData = fs.readFileSync('data/sample_data.json')
-  const sampleData2 = JSON.parse(sampleData)
+  const sampleDataParsed = JSON.parse(sampleData)
 
   route.draw(app).get((req, res) => {
     const filter = (array, selectedProvinces) => {
-      console.log(selectedProvinces)
       if(selectedProvinces.size < 1) {
-        console.log("no selections")
         return array
       }
       return array.filter(x => {
@@ -52,12 +55,17 @@ module.exports = (app, route) => {
       provTerr = req.query.filters
     }
     const selectedProvinces = new Set(provTerr.split(",").filter(x => x))
-    const results = filter(sampleData2, selectedProvinces)
+    const results = filter(sampleDataParsed, selectedProvinces)
+
+    const page = req.query.page ? +req.query.page : 1
+    
     res.render(
       name,
       routeUtils.getViewData(req, { 
-        items: sortPostingDate(results),
+        items: getResultsByPage(sortPostingDate(results), page),
         category: category,
+        URL: req.originalUrl,
+        totalResults: results.length,
       }),
     )
   })

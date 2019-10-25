@@ -9,14 +9,18 @@ const categoryLinks = document.querySelectorAll('.categories a')
 const fetch = window.fetch
 const origin = window.location.origin
 const results = document.getElementById('results')
+const pageLink = document.getElementById('page-link')
 
 let filters = ''
 let keyword = ''
 let category = ''
+let page = 1
 
 /* Ajax request */
 const fetchItems = async () => {
-  const params = `?k=${keyword}&filters=${filters}&category=${category}`
+  console.log("hi")
+
+  const params = `?k=${keyword}&filters=${filters}&category=${category}&page=${page.toString()}`
   const response = await fetch(`${origin}/en/search${params}`)
   const result = await response.text()
 
@@ -58,6 +62,12 @@ const getChecked = () => {
 searchButton.addEventListener('click', async e => {
   e.preventDefault()
   keyword = searchQuery.value
+  fetchItems()
+})
+
+pageLink.addEventListener('click', async e => {
+  // e.preventDefault()
+  page += 1
   fetchItems()
 })
 
