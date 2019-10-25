@@ -12,8 +12,8 @@ accessibleAutocomplete({
   source: categories,
 })
 
-const searchQuery = document.querySelector('input[name=q]')
-const searchButton = document.getElementById('search')
+// const searchQuery = document.querySelector('input[name=q]')
+// const searchButton = document.getElementById('search')
 const locationCheckboxes = document.querySelectorAll(
   'input[name=apply_locations]',
 )
@@ -36,7 +36,7 @@ const getQueryVariable = variable => {
 }
 
 let filters = ''
-let keyword = ''
+const keyword = ''
 let gsin = ''
 
 if(window.location.search) {
