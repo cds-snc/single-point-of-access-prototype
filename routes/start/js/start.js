@@ -1,15 +1,15 @@
 import accessibleAutocomplete from 'accessible-autocomplete'
 
-const grants = [
-  'Federal Innovation Grant',
-  'Low Income Stability Grant',
-  'French First Grant',
+const categories = [
+  'Category 1',
+  'Category 2',
+  'Category 3',
 ]
 
 accessibleAutocomplete({
   element: document.querySelector('#gsin-search'),
   id: 'gsin', // To match it to the existing <label>.
-  source: grants,
+  source: categories,
 })
 
 const searchQuery = document.querySelector('input[name=q]')
@@ -37,12 +37,12 @@ const getQueryVariable = variable => {
 
 let filters = ''
 let keyword = ''
-// let category = ''
+let gsin = ''
 
 if(window.location.search) {
   filters = getQueryVariable("filters") ? getQueryVariable("filters") : ''
   // keyword = getQueryVariable("keyword") ? getQueryVariable("keyword") : ''
-  // category = getQueryVariable("category") ? getQueryVariable("category") : ''
+  gsin = getQueryVariable("gsin") ? getQueryVariable("gsin") : ''
 }
 
 const checkTheBoxes = () => {
@@ -55,8 +55,8 @@ const checkTheBoxes = () => {
 checkTheBoxes()
 /* Ajax request */
 const fetchItems = async () => {
-  // const params = `?k=${keyword}&filters=${filters}&category=${category}`
-  const params = `?k=${keyword}&filters=${filters}`
+  const params = `?k=${keyword}&filters=${filters}&gsin=${gsin}`
+  // const params = `?k=${keyword}&filters=${filters}`
   const response = await fetch(`${origin}/en/search${params}`)
   const result = await response.text()
 
@@ -88,11 +88,6 @@ const getChecked = () => {
 }
 
 /* Click events */
-searchButton.addEventListener('click', async e => {
-  e.preventDefault()
-  keyword = searchQuery.value
-  fetchItems()
-})
 
 locationCheckboxes.forEach(item => {
   item.addEventListener('click', e => {
