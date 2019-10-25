@@ -27,9 +27,7 @@ module.exports = (app, route) => {
 
   route.draw(app).get((req, res) => {
     const filter = (array, selectedProvinces) => {
-      console.log(selectedProvinces)
       if(selectedProvinces.size < 1) {
-        console.log("no selections")
         return array
       }
       return array.filter(x => {
@@ -56,8 +54,9 @@ module.exports = (app, route) => {
     res.render(
       name,
       routeUtils.getViewData(req, { 
-        items: sortPostingDate(results),
+        items: sortPostingDate(results).slice(0, 40),
         category: category,
+        totalResults: results.length,
       }),
     )
   })
