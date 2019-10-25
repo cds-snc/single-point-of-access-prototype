@@ -1,3 +1,17 @@
+import accessibleAutocomplete from 'accessible-autocomplete'
+
+const grants = [
+  'Federal Innovation Grant',
+  'Low Income Stability Grant',
+  'French First Grant',
+]
+
+accessibleAutocomplete({
+  element: document.querySelector('#gsin-search'),
+  id: 'gsin', // To match it to the existing <label>.
+  source: grants,
+})
+
 const searchQuery = document.querySelector('input[name=q]')
 const searchButton = document.getElementById('search')
 const locationCheckboxes = document.querySelectorAll(

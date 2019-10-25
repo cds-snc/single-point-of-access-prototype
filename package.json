@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "@cds-snc/webpack-starter": "cds-snc/webpack-starter#aa0e70b",
+    "accessible-autocomplete": "^2.0.1",
     "autoprefixer": "^9.6.5",
     "compression": "^1.7.4",
     "cookie-parser": "~1.4.4",
