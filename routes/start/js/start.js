@@ -46,7 +46,6 @@ const checkTheBoxes = () => {
 checkTheBoxes()
 /* Ajax request */
 const fetchItems = async () => {
-  console.log(gsin)
   const params = `?k=${keyword}&filters=${filters}&gsin=${gsin}`
   const response = await fetch(`${origin}/en/search${params}`)
   const result = await response.text()
@@ -116,8 +115,11 @@ accessibleAutocomplete({
   source: Object.keys(gsinData),
   defaultValue: gsin !== "" ? gsinDataReverse[gsin] : "",
   onConfirm: (gsinName) => {
-    // console.log("hi")
-    gsin = gsinData[gsinName] === undefined ? "" : gsinData[gsinName]
+    if(gsinName === undefined) {
+      // autocomplete's onConfirm seems to fire spuriously when the checkboxes are clicked
+      return
+    }
+    gsin = gsinData[gsinName]
     fetchItems()
   },
 })
