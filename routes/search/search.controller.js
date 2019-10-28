@@ -24,7 +24,7 @@ module.exports = (app, route) => {
 
   const _sampleData = fs.readFileSync('data/sample_data.json')
   const sampleData = JSON.parse(_sampleData)
-  const _gsinDict = fs.readFileSync('data/L1_dict_reverse.json')
+  const _gsinDict = fs.readFileSync('data/L2_dict_reverse.json')
   const gsinDict = JSON.parse(_gsinDict)
 
   const filterByProvince = (array, selectedProvinces) => {

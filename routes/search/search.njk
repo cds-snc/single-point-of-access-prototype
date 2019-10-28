@@ -2,8 +2,8 @@
     <h2 class="mt-0 mb-2">{{ totalResults }}
         <span class="inline-block text-sm">Results found in
         </span>
-        <span class="inline-block text-sm p-1 bg-gray-200">{{ gsinCategory }}
-            <span></h2>
+        <span class="inline-block text-sm p-1 bg-gray-200">{{ gsinCategory | truncate(80) }}
+            </span></h2>
             <div>
                 {% from 'list-item.njk' import listItem as listItem with context %}
                 {% block content %}
