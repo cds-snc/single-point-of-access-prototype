@@ -10233,7 +10233,7 @@
 }
 
 .list-item{
-  max-width: 32rem;
+  /* @apply max-w-xl; */
   font-size: 1.0rem;
 }
 
