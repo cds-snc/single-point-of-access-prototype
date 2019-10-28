@@ -10237,6 +10237,14 @@
   font-size: 1.0rem;
 }
 
+.list-item a{
+  text-decoration: none;
+}
+
+.list-item a:hover{
+  text-decoration: underline;
+}
+
 .details{
   background-color: #f0fcff;
   padding-left: 0.75rem;
