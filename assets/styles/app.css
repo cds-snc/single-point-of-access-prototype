@@ -75,5 +75,8 @@ form fieldset legend, form>label{
     
 }
 
+h1 {
+    border-bottom: none !important;
+}
 
 

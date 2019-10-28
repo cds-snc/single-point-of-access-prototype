@@ -10302,6 +10302,10 @@ form fieldset legend, form>label{
   margin-bottom:.5em;
 }
 
+h1 {
+  border-bottom: none !important;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;
@@ -51117,6 +51121,5 @@ form fieldset legend, form>label{
     z-index: auto;
   }
 }
-
 
 
