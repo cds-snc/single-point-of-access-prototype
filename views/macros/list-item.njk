@@ -1,9 +1,7 @@
 {% macro listItem(attributes) %}
     <!-- start list item -->
     <div class="list-item">
-        {# <h2><a href="details" class="my-1 text-blue">{{attributes.title}}</a></h2> #}
-        <h2 class="my-1 text-blue"><a href="details">{{attributes.title}}</a></h2>
-        {# <h2 class="my-1 text-blue">{{attributes.title}}</h2> #}
+        <h2 class="my-1 text-blue"><a href={{ "details?id=" + attributes.id}}>{{attributes.title}}</a></h2>
         <div class="location my-0 text-sm font-bold text-gray-800">
             <div class="location-1">Buyer: {{attributes.buyer_name}}</div>
             <div class="location-2">Location: {{ attributes.location_of_work | truncate(50) }}</div>

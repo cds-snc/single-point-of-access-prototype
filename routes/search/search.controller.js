@@ -70,7 +70,7 @@ module.exports = (app, route) => {
       gsin = req.query.gsin
     }
 
-
+    req.session.searchData = {gsin: gsin, filters: provTerr}
 
     const selectedProvinces = new Set(provTerr.split(",").filter(x => x))
     const selectedGsins = gsin.split(",").filter(x => x)

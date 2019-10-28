@@ -1,15 +1,15 @@
 {% extends "base.njk" %}
 
 {% block content %}
-    <a href="start">Back</a>
-    <h1>{{ __('details.title') }}</h1>
-
-    <div>
-        <p>
-            {{ __('details.intro') }}
-        </p>
-
-        Hello
+    <a href={{ backUrl }}>Back</a>
+    <h1 class="my-1 text-blue">{{item.title}}</h2>
+    <div class="location my-2 text-gray-800">
+        <div class="location-1"><span class="font-bold">Buyer:</span> {{item.buyer_name}}</div>
+        <div class="location-2"><span class="font-bold">Location:</span> {{ item.location_of_work }}</div>
     </div>
+    
+    <p class="my-0 text-gray-800"><span class="font-bold">Published on:</span> <span class="publish-date">{{ item.published_date }}</span></p>
+    <p class="my-0 text-gray-800"><span class="font-bold">Closing on:</span> <span class="closing-date">{{item.closing_date}}</span></p>
+    <p class="description my-2 text-gray-800"><span class="font-bold">Description:</span> {{ item.tender_description }}</p>
 
 {% endblock %}

@@ -27,12 +27,10 @@ const getQueryVariable = variable => {
 }
 
 let filters = ''
-const keyword = ''
 let gsin = ''
 
 if(window.location.search) {
   filters = getQueryVariable("filters") ? getQueryVariable("filters") : ''
-  // keyword = getQueryVariable("keyword") ? getQueryVariable("keyword") : ''
   gsin = getQueryVariable("gsin") ? getQueryVariable("gsin") : ''
 }
 
@@ -46,7 +44,7 @@ const checkTheBoxes = () => {
 checkTheBoxes()
 /* Ajax request */
 const fetchItems = async () => {
-  const params = `?k=${keyword}&filters=${filters}&gsin=${gsin}`
+  const params = `?filters=${filters}&gsin=${gsin}`
   const response = await fetch(`${origin}/en/search${params}`)
   const result = await response.text()
 

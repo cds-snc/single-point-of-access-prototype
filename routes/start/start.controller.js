@@ -1,4 +1,4 @@
-const { routeUtils, getClientJs } = require('../../utils/index')
+const { routeUtils, getClientJs } = require('../../utils')
 const fs = require('fs')
 
 const provTerrOptions = {
