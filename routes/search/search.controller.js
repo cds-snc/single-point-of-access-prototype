@@ -24,6 +24,8 @@ module.exports = (app, route) => {
 
   const _sampleData = fs.readFileSync('data/sample_data.json')
   const sampleData = JSON.parse(_sampleData)
+  const _gsinDict = fs.readFileSync('data/L1_dict_reverse.json')
+  const gsinDict = JSON.parse(_gsinDict)
 
   const filterByProvince = (array, selectedProvinces) => {
     if(selectedProvinces.size < 1) {
@@ -54,20 +56,17 @@ module.exports = (app, route) => {
 
   route.draw(app).get((req, res) => {
 
-    let category = ' All categories'
-
-    if (req.query.category) {
-      category = req.query.category
-    }
-
     let provTerr = ""
     if (req.query.filters) {
       provTerr = req.query.filters
     }
 
     let gsin = ""
+    let gsinCategory = ' All categories'
+
     if (req.query.gsin) {
       gsin = req.query.gsin
+      gsinCategory = gsinDict[gsin]
     }
 
     req.session.searchData = {gsin: gsin, filters: provTerr}
@@ -81,7 +80,7 @@ module.exports = (app, route) => {
       name,
       routeUtils.getViewData(req, { 
         items: sortPostingDate(results).slice(0, 40),
-        category: category,
+        gsinCategory: gsinCategory,
         totalResults: results.length,
       }),
     )
