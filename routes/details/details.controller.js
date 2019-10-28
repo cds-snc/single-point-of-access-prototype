@@ -8,6 +8,9 @@ module.exports = (app, route) => {
   const _sampleData = fs.readFileSync('data/sample_data.json')
   const sampleData = JSON.parse(_sampleData)
 
+  const _gsinDict = fs.readFileSync('data/full_dict_reverse.json')
+  const gsinDict = JSON.parse(_gsinDict)
+
   route.draw(app)
     .get((req, res) => {
       const id = req.query.id ? req.query.id : ""
@@ -16,6 +19,9 @@ module.exports = (app, route) => {
         console.log("oh no!")
         // need to redirect to 404 if no valid id
       }
+      const gsinCategory = gsinDict[results[0].GSIN_code]
+      console.log(results[0].GSIN_code)
+      console.log(gsinCategory)
 
       const js = getClientJs(req, route.name)
 
@@ -29,6 +35,7 @@ module.exports = (app, route) => {
         item: results[0],
         backUrl: backUrl,
         jsFiles: js ? [js] : false,
+        gsinCategory: gsinCategory,
       }))
     })
 }
