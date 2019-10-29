@@ -19,10 +19,14 @@ module.exports = (app, route) => {
         console.log("oh no!")
         // need to redirect to 404 if no valid id
       }
-      const gsinCategory = gsinDict[results[0].GSIN_code]
-      console.log(results[0].GSIN_code)
-      console.log(gsinCategory)
-
+      // const gsinCategory = gsinDict[results[0].GSIN_code]
+      const gsins = results[0].GSIN_code.map(x => {
+        return {
+          gsinCode: x, 
+          gsinCategory: gsinDict[x], 
+          gsinLastCategory: gsinDict[x].split(" > ").slice(-1)[0],
+        }
+      })
       const js = getClientJs(req, route.name)
 
       const queryParams = {...req.session.searchData, ...req.query}
@@ -35,7 +39,7 @@ module.exports = (app, route) => {
         item: results[0],
         backUrl: backUrl,
         jsFiles: js ? [js] : false,
-        gsinCategory: gsinCategory,
+        gsins: gsins,
       }))
     })
 }
