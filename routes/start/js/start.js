@@ -5,6 +5,7 @@ import gsinDataReverse from '../../../data/L2_dict_reverse.json'
 const locationCheckboxes = document.querySelectorAll(
   'input[name=apply_locations]',
 )
+const clearFilters = document.getElementById('clear-filters')
 // const categoryLinks = document.querySelectorAll('.categories a')
 
 const fetch = window.fetch
@@ -38,6 +39,17 @@ const checkTheBoxes = () => {
     }
   })
 }
+
+const showOrHideClearFilters = () => {
+  if (
+    ((filters || gsin) && clearFilters.classList.contains("hidden"))
+    || ((!filters && !gsin) && !clearFilters.classList.contains("hidden"))
+    ) {
+    clearFilters.classList.toggle("hidden")
+  }  
+}
+
+
 checkTheBoxes()
 /* Ajax request */
 const fetchItems = async () => {
@@ -51,8 +63,10 @@ const fetchItems = async () => {
     '',
     params,
   )
-
+    
   formatDates()
+  showOrHideClearFilters()
+
 }
 
 /* Get all filters that are checked */

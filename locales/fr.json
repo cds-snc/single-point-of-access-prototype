@@ -52,5 +52,17 @@
   "Closed": "Closed",
   "form.apply_locations": "form.apply_locations",
   "Ontario": "Ontario",
-  "PEI": "PEI"
+  "PEI": "PEI",
+  "Alberta": "Alberta",
+  "British Columbia": "British Columbia",
+  "Manitoba": "Manitoba",
+  "New Brunswick": "New Brunswick",
+  "Newfoundland and Labrador": "Newfoundland and Labrador",
+  "Northwest Territories": "Northwest Territories",
+  "Nova Scotia": "Nova Scotia",
+  "Nunavut": "Nunavut",
+  "Prince Edward Island": "Prince Edward Island",
+  "Quebec": "Quebec",
+  "Saskatchewan": "Saskatchewan",
+  "Yukon": "Yukon"
 }

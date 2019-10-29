@@ -3,8 +3,11 @@
 
 {% block content %}
     <h1>Find Contracts <span class="text-lg">in the Canadian public sector</span></h1>
-    <div class="flex flex-wrap">
-        <div class="filters flex flex-1 flex-col mr-10 md:max-w-sm lg:max-w-md">
+
+    <div class="flex flex-wrap flex-row">
+        <div class="filters flex-1 flex-col mr-10 md:max-w-sm lg:max-w-md">
+            <a id="clear-filters" href="start" class="text-base hidden">Clear filters</a>
+            
             <!-- Keyword Search -->
             <div class="mb-2">
                 <form class="search-form my-0 ">
