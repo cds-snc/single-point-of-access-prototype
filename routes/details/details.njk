@@ -1,23 +1,25 @@
 {% extends "base.njk" %}
 
 {% block content %}
+    <h1>Find Contracts <span class="text-lg">in the Canadian public sector</span></h1>
     <a href={{ backUrl }}>< Back to search</a>
-    <h1 class="my-6 text-blue">{{item.title}}</h2>
-    <div class="location my-2 text-gray-800">
-        <div class="location-1"><span class="font-bold">Buyer:</span> {{ defaultValue(item.buyer_name) }}</div>
-        <div class="location-2"><span class="font-bold">Location:</span> {{ defaultValue(item.location_of_work) }}</div>
+    <h2 class="my-6">Opportunity Details</h2>
+    <h2 class="my-6 text-blue">{{item.title}}</h2>
+    <div class="location my-5 text-gray-800">
+        <div class="location-1 text-2xl"><span class="font-bold">Buyer:</span> {{ defaultValue(item.buyer_name) }}</div>
+        <div class="location-2 text-2xl"><span class="font-bold">Location:</span> {{ defaultValue(item.location_of_work) }}</div>
     </div>
     
     <p class="my-0 text-gray-800"><span class="font-bold">Published on:</span> <span class="publish-date">{{ defaultValue(item.published_date) }}</span></p>
-    <p class="my-0 text-gray-800"><span class="font-bold">Closing on:</span> <span class="closing-date">{{ defaultValue(item.closing_date) }}</span></p>
+    <p class="mb-5 text-gray-800"><span class="font-bold">Closing on:</span> <span class="closing-date">{{ defaultValue(item.closing_date) }}</span></p>
     <p class="my-2 text-gray-800"><span class="font-bold">Description:</span> {{ defaultValue(item.tender_description) }}</p>
-    <p class="my-2 text-gray-800"><span class="font-bold">Trade agreement(s):</span> {{ defaultValue(item.trade_agreement) }}</p>
-    <p class="my-2 text-gray-800"><span class="font-bold">Procurement rules:</span> {{ defaultValue(item.procurement_rules) }}</p>
-    <p class="my-2 text-gray-800"><span class="font-bold">Selection Criteria:</span> {{ defaultValue(item.selection_criteria) }}</p>
+    <p class="my-5 text-gray-800"><span class="font-bold">Trade agreement(s):</span> {{ defaultValue(item.trade_agreement) }}</p>
+    <p class="my-5 text-gray-800"><span class="font-bold">Procurement rules:</span> {{ defaultValue(item.procurement_rules) }}</p>
+    <p class="my-5 text-gray-800"><span class="font-bold">Selection Criteria:</span> {{ defaultValue(item.selection_criteria) }}</p>
 
     <hr class="list-item-line my-6" />
-    <p class="my-0 text-gray-800"><span class="font-bold">Contact:</span> {{ defaultValue(item.buyer_contact) }} </p>
-    <p class="my-0 text-gray-800"><span class="font-bold">GSIN (Goods and Services Identification Number):</span> {{ defaultValue(item.GSIN_code) }} </p>
+    <p class="my-0 text-gray-800"><span class="font-bold">Contact:</span> {{ defaultValue(item.buyer_contact) }}</p>
+    <p class="my-5 text-gray-800"><span class="font-bold">GSIN (Goods and Services Identification Number):</span> {{ defaultValue(item.GSIN_code) }} </p>
     <p class="my-6 text-gray-800"><span class="font-bold">GSIN Category:</span> {{ gsinCategory }} </p>
     <a class="my-6 text-blue font-bold" href={{ item.URL }}>View Full Details</a>
 
