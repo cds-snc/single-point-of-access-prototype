@@ -18,6 +18,7 @@
     <hr class="list-item-line my-6" />
     <p class="my-0 text-gray-800"><span class="font-bold">Contact:</span> {{ defaultValue(item.buyer_contact) }} </p>
     <p class="my-0 text-gray-800"><span class="font-bold">GSIN (Goods and Services Identification Number):</span> {{ defaultValue(item.GSIN_code) }} </p>
-    <p class="my-0 text-gray-800"><span class="font-bold">GSIN Category:</span> {{ gsinCategory }} </p>
+    <p class="my-6 text-gray-800"><span class="font-bold">GSIN Category:</span> {{ gsinCategory }} </p>
+    <a class="my-6 text-blue font-bold" href={{ item.URL }}>View Full Details</a>
 
 {% endblock %}
