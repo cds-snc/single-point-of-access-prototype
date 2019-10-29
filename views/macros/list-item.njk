@@ -2,9 +2,9 @@
     <!-- start list item -->
     <div class="list-item">
         <h2 class="my-1 text-blue"><a href={{ "details?id=" + attributes.id}}>{{attributes.title}}</a></h2>
-        <div class="location my-0 text-sm font-bold text-gray-800">
-            <div class="location-1">Buyer: {{attributes.buyer_name}}</div>
-            <div class="location-2">Location: {{ attributes.location_of_work | truncate(50) }}</div>
+        <div class="location my-0 text-lg text-gray-800">
+            <div class="location-1"><span class="font-bold">Buyer: </span>{{attributes.buyer_name}}</div>
+            <div class="location-2"><span class="font-bold">Location:</span> {{ attributes.location_of_work | truncate(50) }}</div>
         </div>
         <!-- start details -->
         {# <div class="details my-1 text-gray-800 text-sm">
@@ -12,9 +12,10 @@
             <div class="closing">Closing on: {{attributes.closing_date}}</div>
         </div> #}
         <!-- end details -->
-        <p class="my-0 text-sm text-gray-800">Published on: <span class="publish-date">{{ attributes.published_date }}</span></p>
-        <p class="my-0 text-sm text-gray-800">Closing on: <span class="closing-date">{{attributes.closing_date}}</span></p>
-        <p class="my-2 text-gray-800">{{ attributes.tender_description | truncate(200) }}</p>
+        <p class="mt-5 mb-0 text-base text-gray-800">Published on: <span class="publish-date">{{ attributes.published_date }}</span></p>
+        <p class="mb-5 mt-0 text-base text-gray-800">Closing on: <span class="closing-date">{{attributes.closing_date}}</span></p>
+        <p class="mt-2 mb-0 text-gray-800 text-base font-bold"> Description </p>
+        <p class="text-gray-800">{{ attributes.tender_description | truncate(200) }}</p>
         <hr class="list-item-line my-6" />
     </div>
     <!-- end list item -->
